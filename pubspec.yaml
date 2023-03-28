@@ -9,6 +9,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   get: 4.6.5
   http: 0.13.5
+  google_fonts: 4.0.3
   flutter: 
     sdk: flutter
 
@@ -18,5 +19,7 @@ dev_dependencies:
     sdk: flutter
 
 flutter: 
+  assets: 
+    - assets/
   uses-material-design: true
 

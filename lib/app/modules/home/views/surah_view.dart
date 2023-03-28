@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:quran_apps/app/data/models/surah_model.dart';
 import 'package:quran_apps/app/modules/home/controllers/home_controller.dart';
+import 'package:quran_apps/app/routes/app_pages.dart';
 
 class SurahView extends GetView<HomeController> {
   const SurahView({super.key});
@@ -28,13 +30,16 @@ class SurahView extends GetView<HomeController> {
           itemBuilder: (context, index) {
             SurahModel model = snapshot.data![index];
             return ListTile(
-              leading: Text("${model.number}"),
-              title: Text("${model.name!.transliteration!.id}"),
+              onTap: () => Get.toNamed(Routes.DETAIL_SURAH, arguments: model),
+              leading: Text("${model.number}", style: GoogleFonts.poppins()),
+              title: Text("${model.name!.transliteration!.id}",
+                  style: GoogleFonts.poppins()),
               subtitle: Row(
                 children: [
-                  Text("${model.revelation?.id}"),
-                  SizedBox(width: 10),
-                  Text("${model.numberOfVerses} ayat")
+                  Text("${model.revelation?.id}", style: GoogleFonts.poppins()),
+                  const SizedBox(width: 10),
+                  Text("${model.numberOfVerses} ayat",
+                      style: GoogleFonts.poppins())
                 ],
               ),
               trailing: Text("${model.name?.short}"),

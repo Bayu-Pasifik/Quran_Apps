@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:quran_apps/app/constant/color.dart';
 import 'package:quran_apps/app/modules/home/views/surah_view.dart';
 
 import '../controllers/home_controller.dart';
@@ -13,10 +15,11 @@ class HomeView extends GetView<HomeController> {
         appBar: AppBar(
           title: Text(
             'Quran App',
-            style: TextStyle(color: Colors.black),
+            style: GoogleFonts.poppins(
+                color: appNormalPurple, fontWeight: FontWeight.bold),
           ),
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.transparent,
         ),
         body: DefaultTabController(
           length: 2,
@@ -25,18 +28,23 @@ class HomeView extends GetView<HomeController> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Assalamualaikum"),
-                SizedBox(height: 10),
-                Text("Tanvir Ahasan"),
-                SizedBox(height: 10),
+                Text("Assalamualaikum", style: GoogleFonts.poppins()),
+                const SizedBox(height: 10),
+                Text("Tanvir Ahasan",
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w500, fontSize: 18)),
+                const SizedBox(height: 10),
                 Container(
-                  height: 120,
-                  width: context.width,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    color: Colors.purple[400],
-                  ),
-                ),
+                    height: 120,
+                    width: context.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        // color: ,
+                        gradient: const LinearGradient(
+                            colors: [appLightPurple, appDarkPurple],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight)),
+                    child: Image.asset("assets/quran.png")),
                 const SizedBox(height: 10),
                 const TabBar(
                     labelColor: Colors.black,
