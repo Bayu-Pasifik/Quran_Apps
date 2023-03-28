@@ -31,7 +31,16 @@ class SurahView extends GetView<HomeController> {
             SurahModel model = snapshot.data![index];
             return ListTile(
               onTap: () => Get.toNamed(Routes.DETAIL_SURAH, arguments: model),
-              leading: Text("${model.number}", style: GoogleFonts.poppins()),
+              leading: Container(
+                  width: 35,
+                  height: 35,
+                  decoration: const BoxDecoration(
+                      image: DecorationImage(
+                          image: AssetImage("assets/border.png"),
+                          fit: BoxFit.cover)),
+                  child: Center(
+                    child: Text('${model.number}'),
+                  )),
               title: Text("${model.name!.transliteration!.id}",
                   style: GoogleFonts.poppins()),
               subtitle: Row(
